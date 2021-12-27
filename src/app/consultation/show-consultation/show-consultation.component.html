@@ -1,0 +1,74 @@
+ <!--header section start-->
+ <section class="hero-section ptb-100 gradient-overlay"
+ style="background: url('img/header-bg-5.jpg')no-repeat center center / cover">
+<div class="hero-bottom-shape-two" style="background: url('img/hero-bottom-shape.svg')no-repeat bottom center"></div>
+<div class="container">
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+        <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
+            <h1 class="text-white mb-0">Consultations</h1>
+            <div class="custom-breadcrumb">
+                <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
+                    <li class="list-inline-item breadcrumb-item"><a routerLink="">Accueil</a></li> 
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<!--header section end-->
+   <section class="data-table-section ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                 <p><b>Date Rendez-Vous</b> : {{infoRDV.dateRDV}}    -  <b> Heure : </b>{{infoRDV.heureRDV}}  </p>
+                 <p><b>Patient : </b>{{infoRDV.patient.nom}}  {{infoRDV.patient.prenom}} </p>
+                 <p><b>Age : </b>{{infoRDV.patient.age}}  ans </p>
+                 <p><b>Sexe : </b>{{infoRDV.patient.sexe}}  </p>
+                 <p><b>Cause demande Rendez-vous : </b>{{infoRDV.comment}}  </p>
+                 <hr>
+                 <div class="row">
+                        <div class="col-6">
+                            <h3 style="margin: auto; text-align: center;"> Consultation</h3>
+                            <form   class="appointment-form p-5">
+                                <div class="form-row"> 
+                                    <div class="col-12">
+                                        <div class="form-group"> 
+                                            <label class="pb-1">Diagnostic : </label> 
+                                            <textarea type="text" name="diagnostic" [(ngModel)]="diagnostic" value="{{infoConusltation.diagnostic}}" class="form-control" rows="6"  placeholder="Décrire votre situation"></textarea>                                           
+                                        
+                                        </div>
+                                    </div> 
+                                    <div class="col-sm-12 mt-3">
+                                        <button type="submit"  (click)="saveCons(infoConusltation.id)"  class="btn accent-solid-btn">Enregistrer Consultation</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="col-6">
+                            <h3 style="margin: auto; text-align: center;"> Ordonnance</h3>
+                            <form   class="appointment-form p-5">
+                                <div class="form-row"> 
+                                    <div class="col-12">
+                                        <div class="form-group"> 
+                                            <label class="pb-1">Description : </label> 
+                                            <textarea type="text" class="form-control" name="desciption" [(ngModel)]="desciption" rows="6"  value="{{infoOrdonnace.description}}"  placeholder="Décrire votre situation"></textarea>                                           
+                                        
+                                        </div>
+                                    </div> 
+                                    <div class="col-sm-12 mt-3">
+                                        <button type="submit" (click)="saveOrdo(infoOrdonnace.id)"  class="btn accent-solid-btn">Enregistrer Ordonnace</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                 </div>
+                 
+            </div>
+        </div>
+    </div>
+</section>
+<!--data table section end-->

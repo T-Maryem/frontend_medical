@@ -1,0 +1,164 @@
+ <!--hero background image with content slider start-->
+ <section class="hero-section hero-bg-2 ptb-100 full-screen">
+    <div class="container">
+        <div class="row align-items-center justify-content-between pt-5 pt-sm-5 pt-md-5 pt-lg-0">
+            <div class="col-md-7 col-lg-6">
+                <div class="hero-content-left text-white">
+                    <h1 class="text-white">Inscription</h1>
+                    <p class="lead">
+                        Keep your face always toward the sunshine - and shadows will fall behind you.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-5">
+                <div class="card login-signup-card shadow-lg mb-0">
+                    <div class="card-body px-md-5 py-5">
+                        <div class="mb-5">
+                            <h6 class="h3">Create account</h6>
+                            <p class="text-muted mb-0">Made with love by developers for developers.</p>
+                        </div>
+                        <form class="login-signup-form" [formGroup]="registerForm" (ngSubmit)="save()">
+                            
+                            <div class="form-group"> 
+                                <label class="pb-1">Vous êtes un : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <select   class="form-control"  name="type" formControlName="type" >
+                                        <option value="MEDECIN">Médecin</option>>
+                                        <option value="PRESTATAIRE">Prestatire</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="f.type.touched && f.type.invalid" > 
+                                    <div *ngIf="f.type.errors?.required" class="text-danger">Type Obligatoire.</div> 
+                                </div>
+                            </div> 
+                            <div class="form-group"> 
+                                <label class="pb-1">Nom : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <input type="text" class="form-control"  name="nom" formControlName="nom">
+                                </div>
+                                <div *ngIf="f.nom.touched && f.nom.invalid" > 
+                                    <div *ngIf="f.nom.errors?.required" class="text-danger">Nom Obligatoire.</div> 
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="pb-1">Prénom : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <input type="text" class="form-control"  name="prenom" formControlName="prenom">
+                                </div>
+                                <div *ngIf="f.prenom.touched && f.prenom.invalid" > 
+                                    <div *ngIf="f.prenom.errors?.required" class="text-danger">Prénom Obligatoire.</div> 
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="pb-1">E-mail : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <input type="text" class="form-control"  name="mail" formControlName="mail">
+                                </div>
+                                <div *ngIf="f.mail.touched && f.mail.invalid" > 
+                                    <div *ngIf="f.mail.errors?.required" class="text-danger">E-mail Obligatoire.</div> 
+                                    <div *ngIf="f.mail.errors?.email" class="text-danger">E-mail invalide.</div> 
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="pb-1">Téléphone : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <input type="text" class="form-control"  name="tel" formControlName="tel">
+                                </div>
+                                <div *ngIf="f.tel.touched && f.tel.invalid" > 
+                                    <div *ngIf="f.tel.errors?.required" class="text-danger">N° Téléphone Obligatoire.</div>
+                                    <div *ngIf="f.tel.errors?.pattern" class="text-danger">N° Téléphone invalide<br></div>
+                                    <div *ngIf="f.tel.errors?.minlength" class="text-danger">N° Téléphone IN doit au moins 8 chiffres</div>
+                                    <div *ngIf="f.tel.errors?.maxlength" class="text-danger">N° Téléphone doit au max 8 chiffres </div> 
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="pb-1">Sexe : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <select   class="form-control"  name="sexe" formControlName="sexe" >
+                                        <option value="Homme">Homme</option>>
+                                        <option value="Femme">Femme</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="f.sexe.touched && f.sexe.invalid" > 
+                                    <div *ngIf="f.sexe.errors?.required" class="text-danger">Sexe Obligatoire.</div> 
+                                </div>
+                            </div> 
+                            <div class="form-group"> 
+                                <label class="pb-1">Spécialité : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <select   class="form-control"  name="specialite" formControlName="specialite" >
+                                        <option value="Generaliste">Generaliste</option> 
+                                        <option value="Dentiste">Dentiste</option>
+                                        <option value="Pédiatre">Pédiatre</option>
+
+                                    </select>
+                                </div>
+                                <div *ngIf="f.specialite.touched && f.specialite.invalid" > 
+                                    <div *ngIf="f.specialite.errors?.required" class="text-danger">Spécialité Obligatoire.</div> 
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="pb-1">Ville : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <input type="text" class="form-control"  name="ville" formControlName="ville">
+                                </div>
+                                <div *ngIf="f.ville.touched && f.ville.invalid" > 
+                                    <div *ngIf="f.ville.errors?.required" class="text-danger">Ville Obligatoire.</div> 
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="pb-1">Adresse : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <input type="text" class="form-control"  name="adresse" formControlName="adresse">
+                                </div>
+                                <div *ngIf="f.adresse.touched && f.adresse.invalid" > 
+                                    <div *ngIf="f.adresse.errors?.required" class="text-danger">Adresse Obligatoire.</div> 
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="pb-1">Username : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <input type="text" class="form-control"  name="login" formControlName="login">
+                                </div>
+                                <div *ngIf="f.login.touched && f.login.invalid" > 
+                                    <div *ngIf="f.login.errors?.required" class="text-danger">Username Obligatoire.</div> 
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="pb-1">Mot de passe : </label> 
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon"> <span class="ti-user color-primary"></span> </div>
+                                    <input type="password" class="form-control"  name="password" formControlName="password">
+                                </div>
+                                <div *ngIf="f.password.touched && f.password.invalid" > 
+                                    <div *ngIf="f.password.errors?.required" class="text-danger">Mot de passe Obligatoire.</div> 
+                                </div>
+                            </div>
+  
+
+                            <!-- Submit -->
+                            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-block secondary-solid-btn border-radius mt-4 mb-3">
+                                Valider
+                            </button>
+                        </form>
+
+                    </div>
+                    <div class="card-footer px-md-5 bg-transparent border-top"><small>Avez vous un Compte?</small>
+                        <a routerLink="/login" class="small">Se Connecter</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--hero background image with content slider end-->
+

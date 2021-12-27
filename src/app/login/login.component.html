@@ -1,0 +1,67 @@
+<!--hero background image with content slider start-->
+<section class="hero-section hero-bg-2 ptb-100 full-screen">
+    <div class="container">
+        <div class="row align-items-center justify-content-between pt-5 pt-sm-5 pt-md-5 pt-lg-0">
+            <div class="col-md-7 col-lg-6">
+                <div class="hero-content-left text-white">
+                    <h1 class="text-white">Bienvenue</h1>
+                    <p class="lead">
+                        La téléconsultation médicale est un service complémentaire et ne se substitue pas à la médecine en présentiel.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-5">
+                <div class="card login-signup-card shadow-lg mb-0">
+                    <div class="card-body px-md-5 py-5">
+                        <div class="mb-5">
+                            <h5 class="h3">Connexion</h5>
+                            <p class="text-muted mb-0"></p>
+                        </div>
+
+                        <!--login form-->
+                        <form class="login-signup-form" [formGroup]="loginForm" (ngSubmit)="verifUser()">
+                            <div class="form-group">
+                                <label class="pb-1">Username : </label>
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon">
+                                        <span class="ti-email color-primary"></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="login" formControlName="login">  
+                                </div>
+                                <div *ngIf="f.login.touched && f.login.invalid" > 
+                                    <div *ngIf="f.login.errors?.required" class="text-danger">Username Obligatoire.</div> 
+                                </div>
+                            </div>
+                            <!-- Password -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="pb-1">Mot de passe :</label>
+                                    </div> 
+                                </div>
+                                <div class="input-group input-group-merge">
+                                    <div class="input-icon">
+                                        <span class="ti-lock color-primary"></span>
+                                    </div>
+                                    <input type="password" class="form-control"  name="password" formControlName="password" >                         
+                                </div>
+                                <div *ngIf="f.password.touched && f.password.invalid" > 
+                                    <div *ngIf="f.password.errors?.required" class="text-danger">Mot de passe Obligatoire.</div> 
+                                </div>
+                            </div>
+
+                            <!-- Submit -->
+                            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-block secondary-solid-btn border-radius mt-4 mb-3">
+                                SE Connecter
+                            </button>
+
+                        </form>
+                    </div>
+                    <div class="card-footer bg-transparent border-top px-md-5"><small>Vous n'avez pas un compte</small>
+                        <a routerLink="/register" class="small"> Céer un Compte</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--hero background image with content slider end-->

@@ -1,0 +1,47 @@
+<!--header section start-->
+<header class="header">
+    <!--start navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top bg-transparent">
+        <div class="container">
+            <a class="navbar-brand" routerLink="">
+                <img src="assets/img/ehealth.png" alt="logo" width="50%" class="img-fluid"/> 
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="ti-menu"></span>
+            </button>
+            <div class="collapse navbar-collapse h-auto" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto menu">
+                    <!-- Menu Admin--> 
+                    <li><a routerLink=""> Accueil</a>  </li> 
+
+                    <span *ngIf="isAdmin">
+                        <li><a routerLink="message/all"> Messages Réçus</a>  </li> 
+                        <li><a href="#" class="dropdown-toggle">Utilisateurs</a>
+                            <ul class="sub-menu">
+                                <li><a routerLink="prestataire/medical">Prestataires</a></li>
+                                <li><a routerLink="prestataire/medecin">Médecins</a></li>
+                                <li><a routerLink="patient/all">Patients</a></li> 
+                            </ul>
+                        </li>
+                    </span>
+                    <!-- Menu Prestataire-->   
+                    <span *ngIf="isPrestataire"> 
+                        <li><a routerLink="prestataire/profil" > Mon Profil</a>  </li> 
+                        <li><a href="#" class="dropdown-toggle">Rendez-Vous</a>
+                            <ul class="sub-menu">
+                                <li><a routerLink="rdv/dmds">Liste des Demandes</a></li>
+                                <li><a routerLink="rdv/all">Mes Rendez-Vous</a></li> 
+                            </ul>
+                        </li>
+                        <li><a routerLink="patient/all" > Patients</a>  </li> 
+                    </span> 
+                    <!-- Generale-->
+                    <li *ngIf="!isConnected"><a routerLink="login">Se Connecter</a></li> 
+                    <li *ngIf="isConnected"><a href="" (click)="logout()">Déconnecter</a></li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--header section end-->
